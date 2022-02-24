@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TextMesh</string>
+    <string name="no_account">Hesabınız yok mu?  <b>Kayıt Ol</b></string> <!--make signup bold -->
+</resources>
