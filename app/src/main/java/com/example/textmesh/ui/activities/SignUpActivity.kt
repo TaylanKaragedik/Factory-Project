@@ -1,4 +1,4 @@
- package com.example.textmesh
+ package com.example.textmesh.activities
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -6,11 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
-import androidx.appcompat.app.AlertDialog
-import com.example.textmesh.databinding.ActivityLoginBinding
 import com.example.textmesh.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -98,7 +95,7 @@ import com.google.firebase.auth.FirebaseAuth
                 Toast.makeText(this, "$email ile hesap oluşturuldu", Toast.LENGTH_SHORT).show()
 
                 //open profile
-                startActivity(Intent(this,ProfileActivity::class.java))
+                startActivity(Intent(this, ProfileActivity::class.java))
                 finish()
 
             }
