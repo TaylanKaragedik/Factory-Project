@@ -12,16 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TextMesh">
         <activity
-            android:name=".RecyclerView"
+            android:name=".activities.RecyclerView"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activities.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activities.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

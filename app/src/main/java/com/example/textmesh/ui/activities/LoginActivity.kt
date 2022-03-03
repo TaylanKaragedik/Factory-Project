@@ -1,4 +1,4 @@
-package com.example.textmesh
+package com.example.textmesh.activities
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -6,13 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
-import androidx.appcompat.app.AlertDialog
 import com.example.textmesh.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
 
@@ -53,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
 
         //handle click, open register activity
         binding.noAccountTv.setOnClickListener {
-            startActivity(Intent(this,SignUpActivity::class.java))
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
 
         //handle click, begin login
@@ -113,7 +110,7 @@ class LoginActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
             if (firebaseUser != null){
                 //user is already logged in
-                startActivity(Intent(this,ProfileActivity::class.java))
+                startActivity(Intent(this, ProfileActivity::class.java))
                 finish()
             }
     }
