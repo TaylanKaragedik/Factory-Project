@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -30,13 +31,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
+    dataBinding.enabled = true
 }
 
 dependencies {
 
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -46,6 +49,8 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
 
     implementation 'com.github.bumptech.glide:glide:4.13.1'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
+    implementation 'com.google.firebase:firebase-firestore:21.4.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
 
     testImplementation 'junit:junit:4.13.2'
@@ -54,8 +59,9 @@ dependencies {
 
     implementation platform('com.google.firebase:firebase-bom:29.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation  'com.google.firebase:firebase-auth-ktx'
-    implementation  'com.google.firebase:firebase-firestore-ktx'
-    implementation  'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+
 
 }

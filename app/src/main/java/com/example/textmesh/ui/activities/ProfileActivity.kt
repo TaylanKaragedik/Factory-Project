@@ -5,8 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
-import com.example.textmesh.databinding.ActivityLoginBinding
 import com.example.textmesh.databinding.ActivityProfileBinding
+import com.example.textmesh.ui.activities.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 
 class ProfileActivity : AppCompatActivity() {

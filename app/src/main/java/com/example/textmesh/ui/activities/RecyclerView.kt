@@ -1,30 +1,61 @@
-package com.example.textmesh.activities
+package com.example.textmesh.ui.activities
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myapplication.repository.ProductRepository
-import com.example.textmesh.adapters.ProductListRecyclerviewAdapter
-import com.example.textmesh.databinding.ActivityRecyclerViewBinding
+import androidx.recyclerview.widget.RecyclerView
+import com.example.textmesh.R
+import com.example.textmesh.adapters.ProductListAdapter
+import com.example.textmesh.model.ProductItem
+import com.google.firebase.firestore.*
 
 class RecyclerView : AppCompatActivity() {
 
-    var binding: ActivityRecyclerViewBinding? = null
-    private lateinit var productAdapter: ProductListRecyclerviewAdapter
+    private lateinit var productListRecycler: RecyclerView
+    private lateinit var productList: ArrayList<ProductItem>
+    private lateinit var productListAdapter: ProductListAdapter
+    private lateinit var mDataBase: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
-        productAdapter = ProductListRecyclerviewAdapter(ProductRepository.getProductList())
-        binding?.recyclerView?.adapter = productAdapter
-        binding?.recyclerView?.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        setContentView(R.layout.activity_recycler_view)
+        productListRecycler = findViewById(R.id.productRecyclerView)
+        productListRecycler.layoutManager = LinearLayoutManager(this)
+        productListRecycler.setHasFixedSize(true)
+
+        productList = arrayListOf()
+
+        productListAdapter = ProductListAdapter(productList)
+
+        productListRecycler.adapter = productListAdapter
+
+        EventChangeListener()
     }
 
+    private fun EventChangeListener() {
 
-    override fun onDestroy() {
-        super.onDestroy()
-        binding = null
+        mDataBase = FirebaseFirestore.getInstance()
+        mDataBase.collection("Urunler")
+            .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+                    if (error != null) {
+                        Log.e("FireStore Error", error.message.toString())
+                        return
+                    }
+
+                    for (dc: DocumentChange in value?.documentChanges!!) {
+
+                        if (dc.type == DocumentChange.Type.ADDED) {
+                            productList.add(dc.document.toObject(ProductItem::class.java))
+
+                        }
+                    }
+
+                    productListAdapter.notifyDataSetChanged()
+                }
+
+            })
     }
+
 }
