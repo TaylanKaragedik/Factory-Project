@@ -20,33 +20,33 @@ class RecyclerView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view)
-        productListRecycler=findViewById(R.id.productRecyclerView)
-        productListRecycler.layoutManager=LinearLayoutManager(this)
+        productListRecycler = findViewById(R.id.productRecyclerView)
+        productListRecycler.layoutManager = LinearLayoutManager(this)
         productListRecycler.setHasFixedSize(true)
 
         productList = arrayListOf()
 
-        productListAdapter= ProductListAdapter(productList)
+        productListAdapter = ProductListAdapter(productList)
 
-        productListRecycler.adapter=productListAdapter
+        productListRecycler.adapter = productListAdapter
 
         EventChangeListener()
     }
 
     private fun EventChangeListener() {
 
-        mDataBase= FirebaseFirestore.getInstance()
+        mDataBase = FirebaseFirestore.getInstance()
         mDataBase.collection("Urunler")
-            .addSnapshotListener(object:EventListener<QuerySnapshot>{
+            .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                    if(error!=null){
-                        Log.e("FireStore Error",error.message.toString())
+                    if (error != null) {
+                        Log.e("FireStore Error", error.message.toString())
                         return
                     }
 
-                    for(dc:DocumentChange in value?.documentChanges!!){
+                    for (dc: DocumentChange in value?.documentChanges!!) {
 
-                        if(dc.type==DocumentChange.Type.ADDED){
+                        if (dc.type == DocumentChange.Type.ADDED) {
                             productList.add(dc.document.toObject(ProductItem::class.java))
 
                         }
@@ -55,7 +55,7 @@ class RecyclerView : AppCompatActivity() {
                     productListAdapter.notifyDataSetChanged()
                 }
 
-            } )
+            })
     }
 
 }
