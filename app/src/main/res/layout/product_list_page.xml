@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="120dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -11,18 +10,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="122dp">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/photo"
-                android:layout_width="88dp"
-                android:layout_height="111dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/uretim"/>
+                android:id="@+id/productImg"
+                android:layout_width="96dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,67 +31,74 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/uretimNo"
+                        android:id="@+id/modelKodu"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="16dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="1"
-                        android:gravity="top|start"
-                        android:text="@{listItem.uretimNo}" />
+                        android:gravity="top|start" />
 
                     <TextView
-                        android:id="@+id/urunKodu"
+                        android:id="@+id/uretimNo"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="16dp"
                         android:layout_gravity="top|end"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_weight="2"
-                        android:text="@{listItem.urunKodu}" />
+                        android:layout_weight="2" />
 
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/title"
+                    android:id="@+id/model"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="16dp"
                     android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="1dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="@{listItem.title}" />
+                    android:layout_marginBottom="1dp" />
 
                 <TextView
-                    android:id="@+id/adet"
+                    android:id="@+id/talimatAdeti"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="13dp"
                     android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="1dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="@{listItem.adet.toplamAdet}" />
+                    android:layout_marginBottom="1dp"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/renk"
+                    android:layout_width="match_parent"
+                    android:layout_height="17dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="1dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/yas"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_weight="1"
-                        android:visibility="gone"
-                        android:text="Yaş" />
+                        android:layout_weight="3"
+                        android:text="Yaş"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/yas_bes"
@@ -105,9 +108,10 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_weight="1"
-                        android:visibility="gone"
-                        android:text="5-8"/>
+                        android:layout_weight="3"
+                        android:text="5-8"
+                        android:visibility="gone" />
+
                     <TextView
                         android:id="@+id/yas_dokuz"
                         android:layout_width="match_parent"
@@ -116,9 +120,10 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_weight="1"
-                        android:visibility="gone"
-                        android:text="9-12"/>
+                        android:layout_weight="3"
+                        android:text="9-12"
+                        android:visibility="gone" />
+
                     <TextView
                         android:id="@+id/yas_onuc"
                         android:layout_width="match_parent"
@@ -127,14 +132,35 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_weight="1"
-                        android:visibility="gone"
-                        android:text="13-16"/>
+                        android:layout_weight="3"
+                        android:text="13-16"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top|end"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/termin"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/sonDurum"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
-        </LinearLayout>
 
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

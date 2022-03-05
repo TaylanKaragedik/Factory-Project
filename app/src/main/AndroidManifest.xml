@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TextMesh">
         <activity
-            android:name=".activities.RecyclerView"
+            android:name=".ui.activities.RecyclerView"
             android:exported="false" />
         <activity
             android:name=".activities.ProfileActivity"
