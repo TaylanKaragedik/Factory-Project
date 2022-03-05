@@ -2,6 +2,7 @@ package com.example.textmesh.adapters
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -36,6 +37,17 @@ class ProductListAdapter(private val productList: ArrayList<ProductItem>) :
             .applyDefaultRequestOptions(requestOption)
             .load(product.imageUrl)
             .into(holder.image)
+
+        //Size
+        if (product.beden?.get(0) == true || product.beden?.get(1) == true || product.beden?.get(2) == true)
+            holder.yas.visibility = View.VISIBLE
+        if (product.beden?.get(0) == true)
+            holder.yasBes.visibility = View.VISIBLE
+        if (product.beden?.get(1) == true)
+            holder.yasDokuz.visibility = View.VISIBLE
+        if (product.beden?.get(2) == true)
+            holder.yasOnUc.visibility = View.VISIBLE
+
 
     }
 
