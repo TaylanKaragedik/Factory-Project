@@ -16,7 +16,6 @@ class RecyclerView : AppCompatActivity() {
     private lateinit var productList: ArrayList<ProductItem>
     private lateinit var productListAdapter: ProductListAdapter
     private lateinit var mDataBase: FirebaseFirestore
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view)
@@ -25,12 +24,9 @@ class RecyclerView : AppCompatActivity() {
         productListRecycler.setHasFixedSize(true)
 
         productList = arrayListOf()
-
-        productListAdapter = ProductListAdapter(productList)
-
-        productListRecycler.adapter = productListAdapter
-
         EventChangeListener()
+        productListAdapter = ProductListAdapter(productList)
+        productListRecycler.adapter = productListAdapter
     }
 
     private fun EventChangeListener() {
@@ -43,12 +39,9 @@ class RecyclerView : AppCompatActivity() {
                         Log.e("FireStore Error", error.message.toString())
                         return
                     }
-
                     for (dc: DocumentChange in value?.documentChanges!!) {
-
                         if (dc.type == DocumentChange.Type.ADDED) {
                             productList.add(dc.document.toObject(ProductItem::class.java))
-
                         }
                     }
 

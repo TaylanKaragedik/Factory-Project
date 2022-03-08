@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">TextMesh</string>
     <string name="no_account">Hesabınız yok mu?  <b>Kayıt Ol</b></string> <!--make signup bold -->
+    <string-array name="durumlar">
+        <item>Beklemede</item>
+        <item>Dikimde</item>
+        <item>Baskıda</item>
+        <item>Ütüde</item>
+        <item>Pakette</item>
+    </string-array>
 </resources>

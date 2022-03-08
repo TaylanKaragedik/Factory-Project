@@ -1,14 +1,14 @@
 package com.example.textmesh.adapters
 
-
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.textmesh.R
 import com.example.textmesh.model.ProductItem
+import com.example.textmesh.ui.activities.DetailProductActivity
+import com.google.firebase.firestore.FirebaseFirestore
 
 class ProductListAdapter(private val productList: ArrayList<ProductItem>) :
     RecyclerView.Adapter<ProductListViewHolder>() {
@@ -19,41 +19,29 @@ class ProductListAdapter(private val productList: ArrayList<ProductItem>) :
     }
 
     override fun onBindViewHolder(holder: ProductListViewHolder, position: Int) {
-        //TextView
-        val product: ProductItem = productList[position]
-        holder.model.text = product.model
-        holder.modelKodu.text = product.modelKodu
-        holder.sonDurum.text = """Durum: ${product.sonDurum}"""
-        holder.termin.text = "Termin: "
-        holder.talimatAdeti.text = product.talimatAdeti.toString()
-        holder.uretimNo.text = product.uretimNo
-        holder.renk.text = product.renk
 
-        //ImageView
-        val requestOption = RequestOptions()
-            .placeholder(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_foreground)
-        Glide.with(holder.itemView.context)
-            .applyDefaultRequestOptions(requestOption)
-            .load(product.imageUrl)
-            .into(holder.image)
-
-        //Size
-        if (product.beden?.get(0) == true || product.beden?.get(1) == true || product.beden?.get(2) == true)
-            holder.yas.visibility = View.VISIBLE
-        if (product.beden?.get(0) == true)
-            holder.yasBes.visibility = View.VISIBLE
-        if (product.beden?.get(1) == true)
-            holder.yasDokuz.visibility = View.VISIBLE
-        if (product.beden?.get(2) == true)
-            holder.yasOnUc.visibility = View.VISIBLE
-
-
+        when (holder) {
+            is ProductListViewHolder -> {
+                holder.bind(productList[position])
+            }
+        }
+        holder.cardView.setOnClickListener(View.OnClickListener {
+            val intent = Intent(holder.cardView.context, DetailProductActivity::class.java)
+            intent.putExtra("imageUrl", productList[position].imageUrl)
+            intent.putExtra("modelKodu", productList[position].modelKodu)
+            intent.putExtra("model", productList[position].model)
+            intent.putExtra("model", productList[position].model)
+            intent.putExtra("uretimNo", productList[position].uretimNo)
+            intent.putExtra("renk", productList[position].renk)
+            intent.putExtra("talimatAdeti", productList[position].talimatAdeti.toString())
+            intent.putExtra("termin", productList[position].termin)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            holder.image.context.startActivity(intent)
+        })
     }
 
     override fun getItemCount(): Int {
 
         return productList.size
     }
-
 }

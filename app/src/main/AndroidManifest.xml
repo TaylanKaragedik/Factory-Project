@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TextMesh">
         <activity
+            android:name=".ui.activities.DetailProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.RecyclerView"
             android:exported="false" />
         <activity
