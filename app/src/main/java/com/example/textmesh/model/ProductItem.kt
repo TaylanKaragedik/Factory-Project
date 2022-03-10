@@ -1,5 +1,6 @@
 package com.example.textmesh.model
 
+import com.google.firebase.Timestamp
 import java.util.*
 
 data class ProductItem(
@@ -12,6 +13,6 @@ data class ProductItem(
     var talimatAdeti: Int? = null,
     var uretimNo: String? = null,
     var imageUrl: String? = null,
-    var termin: Date? = null,
+    var termin: Timestamp? = null,
 )
 

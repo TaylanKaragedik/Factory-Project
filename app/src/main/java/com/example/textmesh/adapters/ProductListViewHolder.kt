@@ -9,11 +9,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.textmesh.R
 import com.example.textmesh.model.ProductItem
+import java.text.SimpleDateFormat
 
 
 class ProductListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    val cardView:CardView=view.findViewById(R.id.cardView)
+    val cardView: CardView = view.findViewById(R.id.cardView)
     val image: ImageView = view.findViewById(R.id.productImg)
     val modelKodu: TextView = view.findViewById(R.id.modelKodu)
     val model: TextView = view.findViewById(R.id.model)
@@ -28,15 +29,16 @@ class ProductListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val yasOnUc: TextView = view.findViewById(R.id.yas_onuc)
 
 
-    fun bind(productItem:ProductItem){
+    fun bind(productItem: ProductItem) {
         //TextView
-
+        val formatter = SimpleDateFormat("dd/MM/yy")
+        val date = formatter.format(productItem.termin?.toDate())
         model.text = productItem.model
         modelKodu.text = productItem.modelKodu
         sonDurum.text = """Durum: ${productItem.sonDurum}"""
-        termin.text = "Termin: "
+        termin.text = "Termin: $date"
         talimatAdeti.text = productItem.talimatAdeti.toString()
-        uretimNo.text = productItem.uretimNo
+        uretimNo.text = "Üretim No: " + productItem.uretimNo
         renk.text = productItem.renk
 
         //ImageView
@@ -49,7 +51,10 @@ class ProductListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             .into(image)
 
         //Size
-        if (productItem.beden?.get(0) == true || productItem.beden?.get(1) == true || productItem.beden?.get(2) == true)
+        if (productItem.beden?.get(0) == true || productItem.beden?.get(1) == true || productItem.beden?.get(
+                2
+            ) == true
+        )
             yas.visibility = View.VISIBLE
         if (productItem.beden?.get(0) == true)
             yasBes.visibility = View.VISIBLE
@@ -58,4 +63,5 @@ class ProductListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         if (productItem.beden?.get(2) == true)
             yasOnUc.visibility = View.VISIBLE
     }
+
 }

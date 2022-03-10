@@ -1,54 +1,53 @@
 package com.example.textmesh.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.paging.PagingConfig
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.textmesh.R
 import com.example.textmesh.adapters.ProductListAdapter
 import com.example.textmesh.model.ProductItem
-import com.google.firebase.firestore.*
+import com.firebase.ui.firestore.paging.FirestorePagingOptions
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
-class RecyclerView : AppCompatActivity() {
+class RecyclerView : AppCompatActivity(),ProductListAdapter.OnItemClickListener {
 
     private lateinit var productListRecycler: RecyclerView
-    private lateinit var productList: ArrayList<ProductItem>
     private lateinit var productListAdapter: ProductListAdapter
     private lateinit var mDataBase: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view)
         productListRecycler = findViewById(R.id.productRecyclerView)
-        productListRecycler.layoutManager = LinearLayoutManager(this)
         productListRecycler.setHasFixedSize(true)
-
-        productList = arrayListOf()
-        EventChangeListener()
-        productListAdapter = ProductListAdapter(productList)
-        productListRecycler.adapter = productListAdapter
-    }
-
-    private fun EventChangeListener() {
-
+        productListRecycler.layoutManager = LinearLayoutManager(this)
         mDataBase = FirebaseFirestore.getInstance()
-        mDataBase.collection("Urunler")
-            .addSnapshotListener(object : EventListener<QuerySnapshot> {
-                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                    if (error != null) {
-                        Log.e("FireStore Error", error.message.toString())
-                        return
-                    }
-                    for (dc: DocumentChange in value?.documentChanges!!) {
-                        if (dc.type == DocumentChange.Type.ADDED) {
-                            productList.add(dc.document.toObject(ProductItem::class.java))
-                        }
-                    }
+        val query: Query = mDataBase.collection("Urunler")
+        var config = PagingConfig(pageSize = 10)
+        val options =
+            FirestorePagingOptions.Builder<ProductItem>()
+                .setLifecycleOwner(this)
+                .setQuery(query, config, ProductItem::class.java).build()
+        productListAdapter = ProductListAdapter(options,this)
+        productListRecycler.adapter = productListAdapter
 
-                    productListAdapter.notifyDataSetChanged()
-                }
-
-            })
     }
 
+    override fun onItemClicked(itemId: String) {
+        showProductDetailActivitcy(itemId)
+    }
+
+    fun showProductDetailActivitcy(itemId: String){
+        val productDetailActivitcy = DetailProductActivity()
+        val intent=Intent(this,DetailProductActivity::class.java)
+        intent.putExtra("itemId",itemId)
+        productDetailActivitcy.intent=intent
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+    }
 }

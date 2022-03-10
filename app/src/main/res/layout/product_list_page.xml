@@ -33,7 +33,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/modelKodu"
+                        android:id="@+id/uretimNo"
                         android:layout_width="match_parent"
                         android:layout_height="16dp"
                         android:layout_marginStart="5dp"
@@ -44,10 +44,11 @@
                         android:gravity="top|start" />
 
                     <TextView
-                        android:id="@+id/uretimNo"
+                        android:id="@+id/modelKodu"
                         android:layout_width="435dp"
                         android:layout_height="16dp"
                         android:layout_gravity="top|end"
+                        android:textAlignment="textEnd"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
@@ -100,9 +101,9 @@
                         android:layout_marginBottom="5dp"
                         android:layout_weight="3"
                         android:gravity="bottom"
-                        android:textSize="12sp"
                         android:text="Yaş"
-                        android:visibility="visible" />
+                        android:textSize="12sp"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/yas_bes"
@@ -116,7 +117,7 @@
                         android:gravity="bottom"
                         android:text="5-8"
                         android:textSize="12sp"
-                        android:visibility="visible" />
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/yas_dokuz"
@@ -130,7 +131,7 @@
                         android:gravity="bottom"
                         android:text="9-12"
                         android:textSize="12sp"
-                        android:visibility="visible" />
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/yas_onuc"
@@ -144,7 +145,7 @@
                         android:gravity="bottom"
                         android:text="13-16"
                         android:textSize="12sp"
-                        android:visibility="visible" />
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
