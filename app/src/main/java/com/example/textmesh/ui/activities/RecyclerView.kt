@@ -2,7 +2,6 @@ package com.example.textmesh.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.paging.PagingConfig
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,11 +10,10 @@ import com.example.textmesh.R
 import com.example.textmesh.adapters.ProductListAdapter
 import com.example.textmesh.model.ProductItem
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
-class RecyclerView : AppCompatActivity(),ProductListAdapter.OnItemClickListener {
+class RecyclerView : AppCompatActivity(), ProductListAdapter.OnItemClickListener {
 
     private lateinit var productListRecycler: RecyclerView
     private lateinit var productListAdapter: ProductListAdapter
@@ -33,7 +31,7 @@ class RecyclerView : AppCompatActivity(),ProductListAdapter.OnItemClickListener 
             FirestorePagingOptions.Builder<ProductItem>()
                 .setLifecycleOwner(this)
                 .setQuery(query, config, ProductItem::class.java).build()
-        productListAdapter = ProductListAdapter(options,this)
+        productListAdapter = ProductListAdapter(options, this)
         productListRecycler.adapter = productListAdapter
 
     }
@@ -42,12 +40,12 @@ class RecyclerView : AppCompatActivity(),ProductListAdapter.OnItemClickListener 
         showProductDetailActivitcy(itemId)
     }
 
-    fun showProductDetailActivitcy(itemId: String){
+    fun showProductDetailActivitcy(itemId: String) {
         val productDetailActivitcy = DetailProductActivity()
-        val intent=Intent(this,DetailProductActivity::class.java)
-        intent.putExtra("itemId",itemId)
-        productDetailActivitcy.intent=intent
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        val intent = Intent(this, DetailProductActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("itemId", itemId)
+        productDetailActivitcy.intent = intent
         startActivity(intent)
     }
 }
