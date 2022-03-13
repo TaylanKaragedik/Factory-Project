@@ -8,7 +8,6 @@ data class ProductItem(
     var model: String? = null,
     var modelKodu: String? = null,
     var renk: String? = null,
-    var durumlar: List<String>? = null,
     var sonDurum: String? = null,
     var talimatAdeti: Int? = null,
     var uretimNo: String? = null,
