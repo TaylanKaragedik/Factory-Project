@@ -9,7 +9,7 @@ import com.firebase.ui.firestore.paging.FirestorePagingOptions
 
 class ProductListAdapter(
     options: FirestorePagingOptions<ProductItem>,
-    var onItemClickListener: OnItemClickListener
+    private var onItemClickListener: OnItemClickListener
 ) :
     FirestorePagingAdapter<ProductItem, ProductListViewHolder>(options) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductListViewHolder {

@@ -1,28 +1,24 @@
 package com.example.textmesh.ui.activities
 
 import android.content.Intent
+import android.graphics.Typeface
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.textmesh.R
 import com.example.textmesh.model.ProductItem
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import kotlinx.android.synthetic.main.product_detial_page.*
 import java.text.SimpleDateFormat
 
-
-class DetailProductActivity : AppCompatActivity() {
-
+class FinisDetailActivity : AppCompatActivity() {
     private lateinit var mDataBase: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.product_detial_page)
+        setContentView(R.layout.activity_finis_detail)
         val itemId = intent.getStringExtra("itemId")
         val imageView: ImageView = findViewById(R.id.detailImage)
         val modelKodu: TextView = findViewById(R.id.detailModelKod)
@@ -31,6 +27,7 @@ class DetailProductActivity : AppCompatActivity() {
         val talimatAdeti: TextView = findViewById(R.id.detailAdet)
         val termin: TextView = findViewById(R.id.detailTermin)
         val renk: TextView = findViewById(R.id.detailRenk)
+        val durum: TextView = findViewById(R.id.finis_durum)
 
         mDataBase = FirebaseFirestore.getInstance()
         val docRef = mDataBase.collection("Urunler").document(itemId!!)
@@ -42,6 +39,8 @@ class DetailProductActivity : AppCompatActivity() {
             talimatAdeti.text = product.talimatAdeti.toString()
             renk.text = product.renk
             termin.text = product.termin
+            durum.setTypeface(null, Typeface.BOLD)
+            durum.text = product.sonDurum
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)
@@ -53,30 +52,11 @@ class DetailProductActivity : AppCompatActivity() {
                 .load(product.imageUrl)
                 .fitCenter()
                 .into(imageView)
-
-            sp_durumlar.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    val text = parent!!.getItemAtPosition(position).toString()
-                    docRef.update("sonDurum", text)
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    docRef.update("sonDurum", product.sonDurum)
-                }
-
-            }
         }
     }
 
     override fun onBackPressed() {
-        val intent = Intent(this, RecyclerView::class.java)
+        val intent = Intent(this, FinisActivity::class.java)
         startActivity(intent)
     }
-
-
 }

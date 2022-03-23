@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.FinisAddActivity">
+
+
+    <EditText
+        android:id="@+id/urunKodu"
+        android:layout_width="346dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="160dp"
+        android:hint="Urun Kodunu Giriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/urunAdı"
+        android:layout_width="346dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Urun Adını Giriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunKodu" />
+
+    <EditText
+        android:id="@+id/urunRengi"
+        android:layout_width="346dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:hint="Urun Rengini Giriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunAdı" />
+
+    <EditText
+        android:id="@+id/urunUretimNo"
+        android:layout_width="346dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:hint="Uretim No Giriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunRengi" />
+
+    <EditText
+        android:id="@+id/urunAtolyesi"
+        android:layout_width="346dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Urun Atolyesini Giriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunUretimNo" />
+
+    <Button
+        android:id="@+id/finisButton"
+        android:layout_width="190dp"
+        android:layout_height="52dp"
+        android:text="Urun Emri Verin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunAtolyesi"
+        app:layout_constraintVertical_bias="0.774" />
+
+    <Button
+        android:id="@+id/finisImageSelect"
+        android:layout_width="158dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="8dp"
+        android:background="#4CAF50"
+        android:text="Resim Seçiniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/finisTerminDate"
+        android:layout_width="195dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="56dp"
+        android:text="Herhangi bir termin tarihi belirtmediniz"
+        app:layout_constraintEnd_toStartOf="@+id/finisTermin"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunAtolyesi" />
+
+    <Button
+        android:id="@+id/finisTermin"
+        android:layout_width="102dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="56dp"
+        android:text="Termin Seçiniz"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunAtolyesi"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/urunTalimatAdeti"
+        android:layout_width="345dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Talimat Adeti Giriniz"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunAtolyesi"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

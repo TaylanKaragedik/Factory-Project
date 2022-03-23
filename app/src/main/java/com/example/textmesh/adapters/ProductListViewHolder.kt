@@ -31,12 +31,10 @@ class ProductListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(productItem: ProductItem) {
         //TextView
-        val formatter = SimpleDateFormat("dd/MM/yy")
-        val date = formatter.format(productItem.termin?.toDate())
         model.text = productItem.model
         modelKodu.text = productItem.modelKodu
         sonDurum.text = """Durum: ${productItem.sonDurum}"""
-        termin.text = "Termin: $date"
+        termin.text = productItem.termin
         talimatAdeti.text = productItem.talimatAdeti.toString()
         uretimNo.text = "Üretim No: " + productItem.uretimNo
         renk.text = productItem.renk

@@ -1,4 +1,4 @@
-package com.example.textmesh.activities
+package com.example.textmesh.ui.activities
 
 import android.app.ProgressDialog
 import android.content.Intent

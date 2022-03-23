@@ -12,19 +12,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TextMesh">
         <activity
+            android:name=".ui.activities.FasonAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.FasonDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.FasonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.UretimScreen"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.FinisAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.FinisDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.FinisActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.DetailProductActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activities.RecyclerView"
             android:exported="false" />
         <activity
-            android:name=".activities.ProfileActivity"
+            android:name=".ui.activities.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.SignUpActivity"
+            android:name=".ui.activities.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".ui.activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

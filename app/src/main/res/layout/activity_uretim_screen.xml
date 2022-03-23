@@ -7,48 +7,32 @@
     tools:context=".ui.activities.ProfileActivity">
 
     <TextView
-        android:id="@+id/depoText"
+        android:id="@+id/finis"
         android:layout_width="125dp"
         android:layout_height="30dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="Depo"
+        android:text="Finis Üretim"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
-
-    <Button
-        android:id="@+id/logoutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/custom_button"
-        android:text="Çıkış Yap"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/depoText" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonFinis" />
 
     <TextView
-        android:id="@+id/uretimText"
+        android:id="@+id/fason"
         android:layout_width="125dp"
         android:layout_height="30dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="Üretim"
+        android:text="Fason Üretim"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonUretim" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonFason" />
 
     <ImageButton
-        android:id="@+id/imageButtonUretim"
+        android:id="@+id/imageButtonFason"
         android:layout_width="187dp"
         android:layout_height="135dp"
         android:layout_marginTop="32dp"
@@ -56,17 +40,19 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/depo"/>
+        app:srcCompat="@drawable/depo"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="190dp"
-        android:layout_height="131dp"
+        android:id="@+id/imageButtonFinis"
+        android:layout_width="187dp"
+        android:layout_height="135dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uretimText"
-        app:srcCompat="@drawable/uretim" />
+        app:layout_constraintTop_toBottomOf="@+id/fason"
+        app:srcCompat="@drawable/uretim"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

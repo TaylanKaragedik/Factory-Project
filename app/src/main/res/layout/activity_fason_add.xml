@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.FasonAddActivity">
+
+
+    <EditText
+        android:id="@+id/fasonUrunKodu"
+        android:layout_width="347dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="152dp"
+        android:hint="Urun Kodunu Giriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/fasonUrunAdı"
+        android:layout_width="344dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:hint="Urun Adını Giriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fasonUrunKodu"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/fasonUrunRengi"
+        android:layout_width="352dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:hint="Urun Rengini Giriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fasonUrunAdı"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/fasonUretimNo"
+        android:layout_width="351dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:hint="Uretim No Giriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fasonUrunRengi"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/fasonUrunAtolyesi"
+        android:layout_width="346dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:hint="Urun Atolyesini Giriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fasonUretimNo"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/fasonButton"
+        android:layout_width="190dp"
+        android:layout_height="52dp"
+        android:text="Urun Emri Verin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fasonUrunAtolyesi"
+        app:layout_constraintVertical_bias="0.783" />
+
+    <Button
+        android:id="@+id/fasonAddImage"
+        android:layout_width="155dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="16dp"
+        android:text="Resim Seçiniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/fasonUrunTalimatAdeti"
+        android:layout_width="346dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Talimat Adeti Giriniz"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fasonUrunAtolyesi"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/fasonTerminDate"
+        android:layout_width="197dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:text="Termin Tarihi Belirtmediniz"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fasonUrunTalimatAdeti" />
+
+    <Button
+        android:id="@+id/fasonTermin"
+        android:layout_width="136dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:text="Termin Tarihi Seçiniz"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toEndOf="@+id/fasonTerminDate"
+        app:layout_constraintTop_toBottomOf="@+id/fasonUrunTalimatAdeti"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
