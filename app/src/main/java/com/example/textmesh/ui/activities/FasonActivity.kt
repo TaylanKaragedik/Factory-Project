@@ -8,12 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.textmesh.R
 import com.example.textmesh.adapters.ProductListAdapter
-import com.example.textmesh.model.ProductItem
+import com.example.textmesh.model.UretimItems
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_fason.*
-import kotlinx.android.synthetic.main.activity_finis.*
 
 class FasonActivity : AppCompatActivity(), ProductListAdapter.OnItemClickListener {
     private lateinit var fasonListRecycler: RecyclerView
@@ -29,9 +28,9 @@ class FasonActivity : AppCompatActivity(), ProductListAdapter.OnItemClickListene
         val query: Query = mDataBase.collection("fasonUrunler")
         var config = PagingConfig(pageSize = 10)
         val options =
-            FirestorePagingOptions.Builder<ProductItem>()
+            FirestorePagingOptions.Builder<UretimItems>()
                 .setLifecycleOwner(this)
-                .setQuery(query, config, ProductItem::class.java).build()
+                .setQuery(query, config, UretimItems::class.java).build()
         fasonListAdapter = ProductListAdapter(options, this)
         fasonListRecycler.adapter = fasonListAdapter
 

@@ -29,7 +29,7 @@ class FinisAddActivity : AppCompatActivity() {
     private lateinit var urunTalimatAdeti: EditText
     private lateinit var addBtn: Button
     private lateinit var db: FirebaseFirestore
-    private lateinit var finis: MutableMap<String, Any>
+    private lateinit var finis: MutableMap<Any, Any>
     var selectedPhotoUri: Uri? = null
     private lateinit var terminDate: TextView
     private lateinit var finisTermin: Button
@@ -64,7 +64,7 @@ class FinisAddActivity : AppCompatActivity() {
             ).show()
         }
 
-        finisImageSelect.setOnClickListener {
+        finisAddImage.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent, 0)
@@ -93,8 +93,8 @@ class FinisAddActivity : AppCompatActivity() {
             selectedPhotoUri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
             val bitmapDrawable = BitmapDrawable(bitmap)
-            finisImageSelect.setBackgroundDrawable(bitmapDrawable)
-            finisImageSelect.text = ""
+            finisAddImage.setBackgroundDrawable(bitmapDrawable)
+            finisAddImage.text = ""
         }
     }
 
@@ -129,6 +129,7 @@ class FinisAddActivity : AppCompatActivity() {
         finis["uretimNo"] = uretimNo
         finis["imageUrl"] = imageUrl
         finis["termin"] = termin
+        finis["beden"] = arrayListOf<Boolean>(true, true, true)
 
         db.collection("Urunler")
             .add(finis)

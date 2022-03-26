@@ -10,57 +10,72 @@
     <EditText
         android:id="@+id/urunKodu"
         android:layout_width="346dp"
-        android:layout_height="48dp"
+        android:layout_height="37dp"
         android:layout_marginTop="160dp"
         android:hint="Urun Kodunu Giriniz"
+        android:inputType="text"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/urunAdı"
-        android:layout_width="346dp"
-        android:layout_height="48dp"
+        android:layout_width="348dp"
+        android:layout_height="37dp"
         android:layout_marginTop="20dp"
         android:hint="Urun Adını Giriniz"
+        android:inputType="text"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/urunKodu" />
+        app:layout_constraintTop_toBottomOf="@+id/urunKodu"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/urunRengi"
-        android:layout_width="346dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="342dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
         android:hint="Urun Rengini Giriniz"
+        android:inputType="text"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/urunAdı" />
+        app:layout_constraintTop_toBottomOf="@+id/urunAdı"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/urunUretimNo"
         android:layout_width="346dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
         android:hint="Uretim No Giriniz"
+        android:inputType="text"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/urunRengi" />
+        app:layout_constraintTop_toBottomOf="@+id/urunRengi"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/urunAtolyesi"
         android:layout_width="346dp"
-        android:layout_height="48dp"
+        android:layout_height="37dp"
         android:layout_marginTop="20dp"
         android:hint="Urun Atolyesini Giriniz"
+        android:inputType="text"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/urunUretimNo" />
+        app:layout_constraintTop_toBottomOf="@+id/urunUretimNo"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/finisButton"
@@ -75,7 +90,7 @@
         app:layout_constraintVertical_bias="0.774" />
 
     <Button
-        android:id="@+id/finisImageSelect"
+        android:id="@+id/finisAddImage"
         android:layout_width="158dp"
         android:layout_height="145dp"
         android:layout_marginTop="8dp"
@@ -89,10 +104,12 @@
         android:id="@+id/finisTerminDate"
         android:layout_width="195dp"
         android:layout_height="40dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="88dp"
+
+        android:paddingStart="10dp"
         android:text="Herhangi bir termin tarihi belirtmediniz"
         app:layout_constraintEnd_toStartOf="@+id/finisTermin"
-        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintHorizontal_bias="0.419"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/urunAtolyesi" />
 
@@ -100,11 +117,11 @@
         android:id="@+id/finisTermin"
         android:layout_width="102dp"
         android:layout_height="42dp"
-        android:layout_marginTop="56dp"
-        android:text="Termin Seçiniz"
+        android:layout_marginTop="88dp"
+        android:text="Termin Tarihi Seçiniz"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintHorizontal_bias="0.896"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/urunAtolyesi"
         tools:ignore="TouchTargetSizeCheck" />
@@ -112,11 +129,12 @@
     <EditText
         android:id="@+id/urunTalimatAdeti"
         android:layout_width="345dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Talimat Adeti Giriniz"
         android:inputType="number"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/urunAtolyesi"

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.UrunlerAdd">
+
+
+    <TextView
+        android:id="@+id/urunlerRenkTxt"
+        android:layout_width="333dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="136dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunlerBedenler" />
+
+    <Button
+        android:id="@+id/urunlerRenklerButton"
+        android:layout_width="102dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="32dp"
+        android:text="Renk Kaydedin"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/urunlerBedenler"
+        app:layout_constraintTop_toBottomOf="@+id/urunlerAddAdı"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/urunlerRenkler"
+        android:layout_width="248dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="128dp"
+        android:hint="En az 4 tane Renk Giriniz"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunlerAddAdı"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/urunlerAddKodu"
+        android:layout_width="346dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="160dp"
+        android:hint="Urun Kodunu Giriniz"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/urunlerAddAdı"
+        android:layout_width="346dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Urun Adını Giriniz"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunlerAddKodu" />
+
+    <Button
+        android:id="@+id/urunOlustur"
+        android:layout_width="190dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="44dp"
+        android:hint="Urun Oluşturun"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/urunlerAddImage"
+        android:layout_width="158dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="8dp"
+        android:background="#4CAF50"
+        android:text="Resim Seçiniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/urunlerBedenler"
+        android:layout_width="248dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:hint="En az 3 Adet Beden Giriniz"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunlerAddAdı"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/urunlerBedenButton"
+        android:layout_width="102dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="Beden Kaydedin"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toEndOf="@+id/urunlerBedenler"
+        app:layout_constraintTop_toBottomOf="@+id/urunlerAddAdı"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/urunlerbedenTxt"
+        android:layout_width="333dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urunlerBedenler" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

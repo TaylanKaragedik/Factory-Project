@@ -2,7 +2,7 @@ package com.example.textmesh.model
 
 import com.google.firebase.Timestamp
 
-data class ProductItem(
+data class UretimItems(
     var beden: List<Boolean>? = null,
     var model: String? = null,
     var modelKodu: String? = null,

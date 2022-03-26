@@ -12,6 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TextMesh">
         <activity
+            android:name=".ui.activities.UrunlerAdd"
+            android:exported="false"
+            android:label="@string/title_activity_urunler_add"
+            android:theme="@style/Theme.TextMesh.NoActionBar" />
+        <activity
+            android:name=".ui.activities.UrunlerDetail"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.UrunlerScreen"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.FasonAddActivity"
             android:exported="false" />
         <activity

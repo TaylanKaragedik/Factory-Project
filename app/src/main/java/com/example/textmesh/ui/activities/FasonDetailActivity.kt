@@ -10,11 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.textmesh.R
-import com.example.textmesh.model.ProductItem
+import com.example.textmesh.model.UretimItems
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.android.synthetic.main.activity_fason_detail.*
-import java.text.SimpleDateFormat
 
 class FasonDetailActivity : AppCompatActivity() {
     private lateinit var mDataBase: FirebaseFirestore
@@ -33,7 +32,7 @@ class FasonDetailActivity : AppCompatActivity() {
         mDataBase = FirebaseFirestore.getInstance()
         val docRef = mDataBase.collection("fasonUrunler").document(itemId!!)
         docRef.get().addOnSuccessListener {
-            val product = it.toObject<ProductItem>()!!
+            val product = it.toObject<UretimItems>()!!
             model.text = product.model
             modelKodu.text = product.modelKodu
             uretimNo.text = product.uretimNo

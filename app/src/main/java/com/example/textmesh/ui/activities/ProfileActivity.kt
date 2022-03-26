@@ -30,11 +30,11 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.imageButtonUretim.setOnClickListener{
-            startActivity(Intent(this, RecyclerView::class.java))
+        binding.imageButtonUretim.setOnClickListener {
+            startActivity(Intent(this, UrunlerScreen::class.java))
         }
 
-        binding.imageButton3.setOnClickListener { 
+        binding.imageButton3.setOnClickListener {
             startActivity(Intent(this, UretimScreen::class.java))
         }
 
@@ -52,12 +52,11 @@ class ProfileActivity : AppCompatActivity() {
     private fun checkUser() {
         //kullanıcının giriş yapıp yapmadığını kontrol et
         val firebaseUser = firebaseAuth.currentUser
-        if (firebaseUser != null){
+        if (firebaseUser != null) {
             //null değilse giriş yapılmıştır. bilgileri alınır
             val email = firebaseUser.email
 
-        }
-        else{
+        } else {
             //null ise giriş yapılamadı, login activitye git
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
