@@ -12,18 +12,19 @@ import com.example.textmesh.model.UretimItems
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import kotlinx.android.synthetic.main.activity_finis.*
 
-class RecyclerView : AppCompatActivity(), ProductListAdapter.OnItemClickListener {
+class FinisActivity : AppCompatActivity(), ProductListAdapter.OnItemClickListener {
 
-    private lateinit var productListRecycler: RecyclerView
-    private lateinit var productListAdapter: ProductListAdapter
+    private lateinit var finisListRecycler: RecyclerView
+    private lateinit var finisListAdapter: ProductListAdapter
     private lateinit var mDataBase: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recycler_view)
-        productListRecycler = findViewById(R.id.productRecyclerView)
-        productListRecycler.setHasFixedSize(true)
-        productListRecycler.layoutManager = LinearLayoutManager(this)
+        setContentView(R.layout.activity_finis)
+        finisListRecycler = findViewById(R.id.finisRecyclerView)
+        finisListRecycler.setHasFixedSize(true)
+        finisListRecycler.layoutManager = LinearLayoutManager(this)
         mDataBase = FirebaseFirestore.getInstance()
         val query: Query = mDataBase.collection("Urunler")
         var config = PagingConfig(pageSize = 10)
@@ -31,9 +32,13 @@ class RecyclerView : AppCompatActivity(), ProductListAdapter.OnItemClickListener
             FirestorePagingOptions.Builder<UretimItems>()
                 .setLifecycleOwner(this)
                 .setQuery(query, config, UretimItems::class.java).build()
-        productListAdapter = ProductListAdapter(options, this)
-        productListRecycler.adapter = productListAdapter
+        finisListAdapter = ProductListAdapter(options, this)
+        finisListRecycler.adapter = finisListAdapter
 
+        finis_add.setOnClickListener {
+            val intent = Intent(this, FinisAddActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onItemClicked(itemId: String) {
@@ -41,15 +46,16 @@ class RecyclerView : AppCompatActivity(), ProductListAdapter.OnItemClickListener
     }
 
     fun showProductDetailActivitcy(itemId: String) {
-        val productDetailActivitcy = DetailProductActivity()
-        val intent = Intent(this, DetailProductActivity::class.java)
+        val finisDetailActivity = FinisDetailActivity()
+        val intent = Intent(this, FinisDetailActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("itemId", itemId)
-        productDetailActivitcy.intent = intent
+        finisDetailActivity.intent = intent
         startActivity(intent)
     }
+
     override fun onBackPressed() {
-        val intent = Intent(this, ProfileActivity::class.java)
+        val intent = Intent(this, UretimScreen::class.java)
         startActivity(intent)
     }
 }

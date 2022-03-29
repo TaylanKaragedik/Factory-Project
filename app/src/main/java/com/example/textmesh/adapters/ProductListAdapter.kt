@@ -3,15 +3,15 @@ package com.example.textmesh.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.textmesh.R
-import com.example.textmesh.model.ProductItem
+import com.example.textmesh.model.UretimItems
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
 
 class ProductListAdapter(
-    options: FirestorePagingOptions<ProductItem>,
-    var onItemClickListener: OnItemClickListener
+    options: FirestorePagingOptions<UretimItems>,
+    private var onItemClickListener: OnItemClickListener
 ) :
-    FirestorePagingAdapter<ProductItem, ProductListViewHolder>(options) {
+    FirestorePagingAdapter<UretimItems, ProductListViewHolder>(options) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductListViewHolder {
         val productListView =
             LayoutInflater.from(parent.context)
@@ -22,11 +22,11 @@ class ProductListAdapter(
     override fun onBindViewHolder(
         holder: ProductListViewHolder,
         position: Int,
-        productItem: ProductItem
+        uretimItems: UretimItems
     ) {
         when (holder) {
             is ProductListViewHolder -> {
-                holder.bind(productItem)
+                holder.bind(uretimItems)
             }
         }
         holder.itemView.setOnClickListener {

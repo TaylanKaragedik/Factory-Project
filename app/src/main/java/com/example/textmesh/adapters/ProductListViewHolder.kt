@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.textmesh.R
-import com.example.textmesh.model.ProductItem
-import java.text.SimpleDateFormat
+import com.example.textmesh.model.UretimItems
 
 
 class ProductListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -29,17 +28,15 @@ class ProductListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val yasOnUc: TextView = view.findViewById(R.id.yas_onuc)
 
 
-    fun bind(productItem: ProductItem) {
+    fun bind(uretimItems: UretimItems) {
         //TextView
-        val formatter = SimpleDateFormat("dd/MM/yy")
-        val date = formatter.format(productItem.termin?.toDate())
-        model.text = productItem.model
-        modelKodu.text = productItem.modelKodu
-        sonDurum.text = """Durum: ${productItem.sonDurum}"""
-        termin.text = "Termin: $date"
-        talimatAdeti.text = productItem.talimatAdeti.toString()
-        uretimNo.text = "Üretim No: " + productItem.uretimNo
-        renk.text = productItem.renk
+        model.text = uretimItems.model
+        modelKodu.text = uretimItems.modelKodu
+        sonDurum.text = """Durum: ${uretimItems.sonDurum}"""
+        termin.text = uretimItems.termin
+        talimatAdeti.text = uretimItems.talimatAdeti.toString()
+        uretimNo.text = "Üretim No: " + uretimItems.uretimNo
+        renk.text = uretimItems.renk
 
         //ImageView
         val requestOption = RequestOptions()
@@ -47,20 +44,20 @@ class ProductListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             .error(R.drawable.ic_launcher_foreground)
         Glide.with(itemView.context)
             .applyDefaultRequestOptions(requestOption)
-            .load(productItem.imageUrl)
+            .load(uretimItems.imageUrl)
             .into(image)
 
         //Size
-        if (productItem.beden?.get(0) == true || productItem.beden?.get(1) == true || productItem.beden?.get(
+        if (uretimItems.beden?.get(0) == true || uretimItems.beden?.get(1) == true || uretimItems.beden?.get(
                 2
             ) == true
         )
             yas.visibility = View.VISIBLE
-        if (productItem.beden?.get(0) == true)
+        if (uretimItems.beden?.get(0) == true)
             yasBes.visibility = View.VISIBLE
-        if (productItem.beden?.get(1) == true)
+        if (uretimItems.beden?.get(1) == true)
             yasDokuz.visibility = View.VISIBLE
-        if (productItem.beden?.get(2) == true)
+        if (uretimItems.beden?.get(2) == true)
             yasOnUc.visibility = View.VISIBLE
     }
 

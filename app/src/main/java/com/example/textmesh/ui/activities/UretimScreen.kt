@@ -5,13 +5,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
+import com.example.textmesh.R
 import com.example.textmesh.databinding.ActivityProfileBinding
+import com.example.textmesh.databinding.ActivityUretimScreenBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class ProfileActivity : AppCompatActivity() {
-
-    //ViewBinding
-    private lateinit var binding: ActivityProfileBinding
+class UretimScreen : AppCompatActivity() {
+    private lateinit var binding: ActivityUretimScreenBinding
 
     //ActionBar
     private lateinit var actionBar: ActionBar
@@ -27,40 +27,40 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityProfileBinding.inflate(layoutInflater)
+        binding = ActivityUretimScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.imageButtonUretim.setOnClickListener {
-            startActivity(Intent(this, UrunlerScreen::class.java))
+        binding.imageButtonFason.setOnClickListener{
+            startActivity(Intent(this, FasonActivity::class.java))
         }
 
-        binding.imageButton3.setOnClickListener {
-            startActivity(Intent(this, UretimScreen::class.java))
+        binding.imageButtonFinis.setOnClickListener {
+            startActivity(Intent(this, FinisActivity::class.java))
         }
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
-        //handle click, çıkış yap
-        binding.logoutBtn.setOnClickListener {
-            firebaseAuth.signOut()
-            checkUser()
-        }
     }
 
     private fun checkUser() {
         //kullanıcının giriş yapıp yapmadığını kontrol et
         val firebaseUser = firebaseAuth.currentUser
-        if (firebaseUser != null) {
+        if (firebaseUser != null){
             //null değilse giriş yapılmıştır. bilgileri alınır
             val email = firebaseUser.email
 
-        } else {
+        }
+        else{
             //null ise giriş yapılamadı, login activitye git
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }
 
+    override fun onBackPressed() {
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+    }
 }

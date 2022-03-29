@@ -13,26 +13,24 @@ import com.example.textmesh.R
 import com.example.textmesh.model.UretimItems
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import kotlinx.android.synthetic.main.product_detial_page.*
+import kotlinx.android.synthetic.main.activity_fason_detail.*
 
-
-class DetailProductActivity : AppCompatActivity() {
-
+class FasonDetailActivity : AppCompatActivity() {
     private lateinit var mDataBase: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.product_detial_page)
+        setContentView(R.layout.activity_fason_detail)
         val itemId = intent.getStringExtra("itemId")
-        val imageView: ImageView = findViewById(R.id.detailImage)
-        val modelKodu: TextView = findViewById(R.id.detailModelKod)
-        val model: TextView = findViewById(R.id.detailModel)
-        val uretimNo: TextView = findViewById(R.id.detailUretimNo)
-        val talimatAdeti: TextView = findViewById(R.id.detailAdet)
-        val termin: TextView = findViewById(R.id.detailTermin)
-        val renk: TextView = findViewById(R.id.detailRenk)
+        val imageView: ImageView = findViewById(R.id.fasonDetailImage)
+        val modelKodu: TextView = findViewById(R.id.fasonDetailModelKod)
+        val model: TextView = findViewById(R.id.fasonDetailModel)
+        val uretimNo: TextView = findViewById(R.id.fasonDetailUretimNo)
+        val talimatAdeti: TextView = findViewById(R.id.fasonDetailAdet)
+        val termin: TextView = findViewById(R.id.fasonDetailTermin)
+        val renk: TextView = findViewById(R.id.fasonDetailRenk)
 
         mDataBase = FirebaseFirestore.getInstance()
-        val docRef = mDataBase.collection("Urunler").document(itemId!!)
+        val docRef = mDataBase.collection("fasonUrunler").document(itemId!!)
         docRef.get().addOnSuccessListener {
             val product = it.toObject<UretimItems>()!!
             model.text = product.model
@@ -53,7 +51,7 @@ class DetailProductActivity : AppCompatActivity() {
                 .fitCenter()
                 .into(imageView)
 
-            sp_durumlar.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            sp_fason_durumlar.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -73,9 +71,7 @@ class DetailProductActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val intent = Intent(this, RecyclerView::class.java)
+        val intent = Intent(this, FasonActivity::class.java)
         startActivity(intent)
     }
-
-
 }
